@@ -2,7 +2,7 @@
 
 ## How to get started
 
-Welcome to the world of creating Apps for the Smart Builder! Please fork this repository as your own and rename it to represent the App that you are developing. Test change here!
+Welcome to the world of creating Apps for the Smart Builder! Please fork this repository as your own and rename it to represent the App that you are developing. Another change
 
 Here are the steps to get started by setting up your repository settings.
 
