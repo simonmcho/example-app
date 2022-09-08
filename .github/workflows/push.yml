@@ -3,28 +3,42 @@ on:
   push:
     branches:
       - master
-  workflow_call:
-    inputs:
-      push-to-production:
-        description: Push to Produciton
-        required: true
-        type: boolean
-        default: false
+  #   outputs:
+  #     first:
+  #       value: ${{ jobs.Test-Thing.outputs.output1 }}
+  # workflow_call:
+  #   inputs:
+  #     push-to-production:
+  #       description: Push to Produciton
+  #       required: true
+  #       type: boolean
+  #       default: false
 
 jobs:
   Test-Thing:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step-one.outputs.first }}
     steps:
-      - name: 1. Do an action
+      - id: step-one
+        name: 1. Do an action
         run: |
           echo "HELLO"
-          echo ${GITHUB_WORKSPACE}
+          echo "::set-output name=first::simon-test-yes"
           echo "DONE!"
-  Test-Manual:
+  deployment:
     runs-on: ubuntu-latest
-    if: ${{ inputs.push-to-production }}
+    environment: production
     steps:
-      - name: 1. Do manual action
-        run: echo "MANUAL WORKS"
+      - name: Deploy to Production S3
+        run: |
+          echo "deploying!"
+          echo "DONE!"
+  # Test-Manual:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ inputs.push-to-production }}
+  #   steps:
+  #     - name: 1. Do manual action
+  #       run: echo "MANUAL WORKS"
 
       
