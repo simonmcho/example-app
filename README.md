@@ -1,4 +1,4 @@
-# sb-sample-extension
+# Example App placeholder
 
 ## How to get started
 
