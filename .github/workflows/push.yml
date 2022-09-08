@@ -13,6 +13,7 @@ on:
 
 jobs:
   Test-Thing:
+    runs-on: ubuntu-latest
     steps:
       - name: 1. Do an action
         run: |
@@ -20,6 +21,7 @@ jobs:
           echo ${GITHUB_WORKSPACE}
           echo "DONE!"
   Test-Manual:
+    runs-on: ubuntu-latest
     if: ${{ inputs.push-to-production }}
     steps:
       - name: 1. Do manual action
