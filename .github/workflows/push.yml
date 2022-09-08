@@ -1,0 +1,28 @@
+name: Manual Approval Test
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      push-to-production:
+        description: Push to Produciton
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  Test-Thing:
+    steps:
+      - name: 1. Do an action
+        run: |
+          echo "HELLO"
+          echo ${GITHUB_WORKSPACE}
+          echo "DONE!"
+  Test-Manual:
+    if: ${{ inputs.push-to-production }}
+    steps:
+      - name: 1. Do manual action
+        run: echo "MANUAL WORKS"
+
+      
