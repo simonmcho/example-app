@@ -2,7 +2,7 @@ name: Manual Approval Test
 on: 
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
     inputs:
       push-to-production:
